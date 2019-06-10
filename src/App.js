@@ -11,9 +11,7 @@ function App() {
       <h1>Fast React Class. Task 1</h1>
       <FruitsList />
       <FruitsCardsList />
-
       <PersonsList />
-
       <SpaceXCapsulesList />
     </div>
   );
