@@ -1,12 +1,22 @@
 import React from "react";
-import { simpleFruits } from "../../data/data";
+import { useFetch } from "../../hooks/hooks";
 
-const FruitList = () => (
-  <ol>
-    {simpleFruits.fruits.map(item => (
-      <li key={item}>{item}</li>
-    ))}
-  </ol>
-);
+function FruitsList() {
+  const [data, loading] = useFetch("https://api.myjson.com/bins/jbdb8");
+  return (
+    <>
+      <h2>Simple Fruit List</h2>
+      {loading ? (
+        "Loading..."
+      ) : (
+        <ol>
+          {data.fruits.map(item => (
+            <li key={item}>{item}</li>
+          ))}
+        </ol>
+      )}
+    </>
+  );
+}
 
-export default FruitList;
+export default FruitsList;
