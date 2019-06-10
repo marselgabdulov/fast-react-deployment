@@ -1,0 +1,7 @@
+.fruits-cards-list {
+  width: 100%;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-wrap: wrap;
+}
