@@ -13,7 +13,7 @@ function App() {
       <FruitsCardsList />
 
       <PersonsList />
-      <h2>SpaceX Capsules</h2>
+
       <SpaceXCapsulesList />
     </div>
   );
