@@ -1,7 +1,6 @@
 import React from "react";
 import "./FruitsCardsList.css";
 import FruitCard from "./FruitCard/FruitCard";
-import { fruitsAndImages } from "../../data/data";
 
 import { useFetch } from "../../hooks/hooks";
 
