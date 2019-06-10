@@ -1,5 +1,5 @@
 ## Repository for Fast React Google Class (code: v5bw3n)
-First Task: 10.06.2019 [result on github-pages](https://marselgabdulov.github.io/fast-react-class/)
+First Task: 10.06.2019 <br> [result on github-pages](https://marselgabdulov.github.io/fast-react-class/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
