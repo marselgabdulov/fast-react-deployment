@@ -10,7 +10,6 @@ function App() {
     <div className="App">
       <h1>Fast React Class. Task 1</h1>
       <FruitsList />
-      <h2>Fruits with Images</h2>
       <FruitsCardsList />
       <h2>Persons</h2>
       <PersonsList />
