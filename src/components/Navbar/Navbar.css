@@ -1,8 +1,7 @@
 .navbar {
   width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
+  position: relative;
+
   display: -webkit-flex;
   display: -ms-flex;
   display: flex;
@@ -15,7 +14,9 @@
 }
 
 .navbar a {
-  width: 100px;
+  width: auto;
   color: white;
   font-size: 1.2em;
+  margin-right: 1em;
+  display: inline-block;
 }

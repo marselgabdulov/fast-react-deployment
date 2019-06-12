@@ -1,0 +1,14 @@
+.space-form {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  width: 50%;
+  margin: auto;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.error {
+  color: red;
+}
