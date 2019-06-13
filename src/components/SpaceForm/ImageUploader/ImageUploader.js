@@ -8,9 +8,10 @@ function getBase64(img, callback) {
   reader.readAsDataURL(img);
 }
 
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
+
 function beforeUpload(file) {
-  const isValidFormat =
-    file.type === "image/jpeg" || "image/jpg" || "image/png" || "image/gif";
+  const isValidFormat = SUPPORTED_FORMATS.includes(file.type);
   if (!isValidFormat) {
     message.error("You can only upload JPG file!");
   }
@@ -46,6 +47,7 @@ class ImageUploader extends React.Component {
   };
 
   render() {
+    const { setFieldValue } = this.props;
     const uploadButton = (
       <div>
         <Icon type={this.state.loading ? "loading" : "plus"} />
@@ -61,7 +63,10 @@ class ImageUploader extends React.Component {
         showUploadList={false}
         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
         beforeUpload={beforeUpload}
-        onChange={this.handleChange}
+        onChange={e => {
+          this.handleChange(e);
+          setFieldValue(this.props.uploaderName, this.state.fileName);
+        }}
         value={this.state.fileName}
       >
         {imageUrl ? (

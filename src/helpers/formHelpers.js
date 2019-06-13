@@ -1,4 +1,4 @@
-const checkCyrillic = str => {
+const isCyrillic = str => {
   return /[а-яА-ЯЁё]/.test(str);
 };
 
@@ -82,4 +82,4 @@ const validateEmail = email => {
 
 const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
-export { checkCyrillic, translit, validateEmail, phoneRegExp };
+export { isCyrillic, translit, validateEmail, phoneRegExp };
