@@ -65,7 +65,6 @@ class ImageUploader extends React.Component {
         onChange={e => {
           this.handleChange(e);
           setFieldValue(this.props.uploaderName, e.file);
-          console.log(e.file);
         }}
         value={this.state.fileName}
       >

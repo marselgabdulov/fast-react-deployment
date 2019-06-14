@@ -16,6 +16,7 @@ class SuccessModal extends React.Component {
     this.setState({
       visible: false
     });
+    window.location.reload();
   };
 
   handleCancel = e => {

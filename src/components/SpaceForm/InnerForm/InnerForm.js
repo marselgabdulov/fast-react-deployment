@@ -158,7 +158,7 @@ class InnerForm extends React.Component {
             ) : null}
           </FormItem>
           <FormItem>
-            Нзвание летательного аппарата
+            Название летательного аппарата
             <Input
               name="nameOfRocket"
               onChange={handleChange}
