@@ -3,6 +3,9 @@ import { withFormik } from "formik";
 import { isCyrillic, phoneRegExp } from "../../helpers/formHelpers";
 import InnerForm from "./InnerForm/InnerForm";
 
+const FILE_SIZE = 320 * 1024;
+const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
+
 export const SpaceForm = withFormik({
   mapPropsToValues({
     firstNameCyrillic,
@@ -56,8 +59,32 @@ export const SpaceForm = withFormik({
       .string()
       .matches(phoneRegExp, "Телефонный номер заполняется цифрами")
       .required("Обязательно к заполнению"),
-    personalPhoto: yup.string().required("Обязательно к заполнению"),
-    rocketPhoto: yup.string().required("Обязательно к заполнению"),
+    personalPhoto: yup
+      .mixed()
+      .required("Обязательно к заполнению")
+      .test(
+        "fileSize",
+        "Файл должен быть не более 320kb",
+        value => value && value.size <= FILE_SIZE
+      )
+      .test(
+        "fileFormat",
+        "Только изображения в формате jpg/jpeg/gif/png",
+        value => value && SUPPORTED_FORMATS.includes(value.type)
+      ),
+    rocketPhoto: yup
+      .mixed()
+      .required("Обязательно к заполнению")
+      .test(
+        "fileSize",
+        "Файл должен быть не более 320kb",
+        value => value && value.size <= FILE_SIZE
+      )
+      .test(
+        "fileFormat",
+        "Только изображения в формате jpg/jpeg/gif/png",
+        value => value && SUPPORTED_FORMATS.includes(value.type)
+      ),
     nameOfRocket: yup.string().required("Обязательно к заполнению"),
     engineСapacity: yup.string().required("Обязательно к заполнению"),
     backFromBlackHole: yup.boolean(),
@@ -67,9 +94,9 @@ export const SpaceForm = withFormik({
   }),
   handleSubmit: (values, { setSubmitting, setValues }) => {
     setTimeout(() => {
-      // alert(JSON.stringify(values, null, 2));
-      const payload = { ...values, modalIsVisible: true };
-      setValues(payload);
+      alert(JSON.stringify(values, null, 2));
+      // const payload = { ...values, modalIsVisible: true };
+      // setValues(payload);
       setSubmitting(false);
     }, 1000);
   }

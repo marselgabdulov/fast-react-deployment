@@ -13,7 +13,7 @@ const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
 function beforeUpload(file) {
   const isValidFormat = SUPPORTED_FORMATS.includes(file.type);
   if (!isValidFormat) {
-    message.error("You can only upload JPG file!");
+    message.error("Только изображения в формате jpg/jpeg/gif/png");
   }
   const isLt2M = file.size / 1024 / 1024 < 2;
   if (!isLt2M) {
@@ -43,7 +43,6 @@ class ImageUploader extends React.Component {
       );
     }
     this.setState({ fileName: info.file.name });
-    console.log(this.state.fileName);
   };
 
   render() {
@@ -65,7 +64,8 @@ class ImageUploader extends React.Component {
         beforeUpload={beforeUpload}
         onChange={e => {
           this.handleChange(e);
-          setFieldValue(this.props.uploaderName, this.state.fileName);
+          setFieldValue(this.props.uploaderName, e.file);
+          console.log(e.file);
         }}
         value={this.state.fileName}
       >

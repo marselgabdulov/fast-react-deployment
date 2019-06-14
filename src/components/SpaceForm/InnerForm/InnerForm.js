@@ -4,11 +4,7 @@ import "antd/dist/antd.css";
 import "./InnerForm.css";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import SuccessModal from "../SuccessModal/SuccessModal";
-import {
-  checkCyrillic,
-  translit,
-  phoneRegExp
-} from "../../../helpers/formHelpers";
+import { translit } from "../../../helpers/formHelpers";
 
 const FormItem = Form.Item;
 
@@ -128,7 +124,7 @@ class InnerForm extends React.Component {
             ) : null}
           </FormItem>
           <FormItem>
-            Личная фотография
+            Личная фотография (не более 320kb)
             <ImageUploader
               uploaderName="personalPhoto"
               name="personalPhoto"
@@ -217,7 +213,7 @@ class InnerForm extends React.Component {
               </FormItem>
             ) : null}
             <FormItem>
-              Фотография летательного аппарата
+              Фотография летательного аппарата (не более 320kb)
               <ImageUploader
                 uploaderName="rocketPhoto"
                 name="rocketPhoto"
@@ -238,7 +234,6 @@ class InnerForm extends React.Component {
           </FormItem>
         </form>
         <SuccessModal isVisible={values.modalIsVisible} />
-        {console.log(values.modalIsVisible)}
       </>
     );
   }
