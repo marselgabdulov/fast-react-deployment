@@ -1,10 +1,11 @@
 import React from "react";
-import { Select, Input, Icon, Form, Button, Checkbox } from "antd";
+import { Select, Input, Icon, Form, Button, Checkbox, InputNumber } from "antd";
 import "antd/dist/antd.css";
 import "./InnerForm.css";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import { translit } from "../../../helpers/formHelpers";
+import InputMask from "react-input-mask";
 
 const FormItem = Form.Item;
 
@@ -109,16 +110,23 @@ class InnerForm extends React.Component {
             ) : null}
           </FormItem>
           <FormItem>
-            Телефонный номер
-            <Input
-              prefix={
-                <Icon type="phone" style={{ color: "rgba(0,0,0,.25)" }} />
-              }
-              placeholder="номер телефона"
-              name="phoneNumber"
-              onChange={handleChange}
+            <div>Телефонный номер</div>
+            <InputMask
+              mask="+7 (999) 999 99 99"
               value={values.phoneNumber}
-            />
+              onChange={handleChange}
+              name="phoneNumber"
+              disabled={false}
+            >
+              {inputProps => (
+                <Input
+                  prefix={
+                    <Icon type="phone" style={{ color: "rgba(0,0,0,.25)" }} />
+                  }
+                  {...inputProps}
+                />
+              )}
+            </InputMask>
             {errors.phoneNumber && touched.phoneNumber ? (
               <div className="error">{errors.phoneNumber}</div>
             ) : null}

@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import { withFormik } from "formik";
-import { isCyrillic, phoneRegExp } from "../../helpers/formHelpers";
+import { isCyrillic } from "../../helpers/formHelpers";
 import InnerForm from "./InnerForm/InnerForm";
 
 const FILE_SIZE = 320 * 1024;
@@ -55,10 +55,7 @@ export const SpaceForm = withFormik({
       .string()
       .email("Недопустимый формат")
       .required("Обязательно к заполнению"),
-    phoneNumber: yup
-      .string()
-      .matches(phoneRegExp, "Телефонный номер заполняется цифрами")
-      .required("Обязательно к заполнению"),
+    phoneNumber: yup.string().required("Обязательно к заполнению"),
     personalPhoto: yup
       .mixed()
       .required("Обязательно к заполнению")
