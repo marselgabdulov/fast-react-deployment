@@ -2,6 +2,7 @@ import * as yup from "yup";
 import { withFormik } from "formik";
 import { isCyrillic } from "../../helpers/formHelpers";
 import InnerForm from "./InnerForm/InnerForm";
+import { saveToLocalStorage } from "./withLocalStorage";
 
 const FILE_SIZE = 320 * 1024;
 const SUPPORTED_FORMATS = ["image/jpg", "image/jpeg", "image/gif", "image/png"];
@@ -95,14 +96,15 @@ export const SpaceForm = withFormik({
       .number()
       .typeError("Только числовые значения")
       .positive("Только позитивные значения")
-      .required("Обязательно к заполнению")
   }),
   handleSubmit: (values, { setSubmitting, setValues }) => {
     setTimeout(() => {
       // alert(JSON.stringify(values, null, 2));
+      saveToLocalStorage("spaceChallenger", values);
       const payload = { ...values, modalIsVisible: true };
       setValues(payload);
       setSubmitting(false);
+      window.location.reload();
     }, 1000);
   }
 })(InnerForm);

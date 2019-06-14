@@ -5,11 +5,16 @@ import "./InnerForm.css";
 import ImageUploader from "../ImageUploader/ImageUploader";
 import SuccessModal from "../SuccessModal/SuccessModal";
 import { translit } from "../../../helpers/formHelpers";
+// Name of Local Storage Item - 'spaceChallenger'
+import { removeItemFromLocalStorage } from "../withLocalStorage";
 import InputMask from "react-input-mask";
 
 const FormItem = Form.Item;
 
 class InnerForm extends React.Component {
+  state = {
+    localStorageCondition: localStorage.getItem("spaceChallenger") === null
+  };
   handleSelectChange = value => {
     this.props.setFieldValue("haveRecord", value);
   };
@@ -22,6 +27,16 @@ class InnerForm extends React.Component {
         .join("");
     }
     return "";
+  };
+
+  handleClearLocalStorage = () => {
+    const decision = window.confirm("Очистить Local Storage?");
+    if (decision) {
+      removeItemFromLocalStorage("spaceChallenger");
+      window.location.reload();
+    } else {
+      console.log("confirmation has been canceled");
+    }
   };
 
   render() {
@@ -234,12 +249,21 @@ class InnerForm extends React.Component {
                 <div className="error">{errors.rocketPhoto}</div>
               ) : null}
             </FormItem>
+
             <Button
               type="primary"
               htmlType="submit"
               className="login-form-button"
             >
               Отправить
+            </Button>
+            <br />
+            <Button
+              type="danger"
+              onClick={this.handleClearLocalStorage}
+              disabled={this.state.localStorageCondition}
+            >
+              Очистить localStorage
             </Button>
           </FormItem>
         </form>
