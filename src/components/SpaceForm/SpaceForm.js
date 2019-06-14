@@ -45,57 +45,57 @@ export const SpaceForm = withFormik({
   },
 
   validationSchema: yup.object().shape({
-    //   firstNameCyrillic: yup
-    //     .string()
-    //     .test("isCyrillic", "Заполняйте кириллицей", val => isCyrillic(val))
-    //     .required("Обязательно к заполнению"),
-    //   firstNameLatin: yup.string().required("Обязательно к заполнению"),
-    //   lastNameCyrillic: yup.string().required("Обязательно к заполнению"),
-    //   lastNameLatin: yup.string().required("Обязательно к заполнению"),
-    //   email: yup
-    //     .string()
-    //     .email("Недопустимый формат")
-    //     .required("Обязательно к заполнению"),
-    //   phoneNumber: yup.string().required("Обязательно к заполнению"),
-    //   personalPhoto: yup
-    //     .mixed()
-    //     .required("Обязательно к заполнению")
-    //     .test(
-    //       "fileSize",
-    //       "Файл должен быть не более 320kb",
-    //       value => value && value.size <= FILE_SIZE
-    //     )
-    //     .test(
-    //       "fileFormat",
-    //       "Только изображения в формате jpg/jpeg/gif/png",
-    //       value => value && SUPPORTED_FORMATS.includes(value.type)
-    //     ),
-    //   rocketPhoto: yup
-    //     .mixed()
-    //     .required("Обязательно к заполнению")
-    //     .test(
-    //       "fileSize",
-    //       "Файл должен быть не более 320kb",
-    //       value => value && value.size <= FILE_SIZE
-    //     )
-    //     .test(
-    //       "fileFormat",
-    //       "Только изображения в формате jpg/jpeg/gif/png",
-    //       value => value && SUPPORTED_FORMATS.includes(value.type)
-    //     ),
-    //   nameOfRocket: yup.string().required("Обязательно к заполнению"),
-    //   engineСapacity: yup
-    //     .number()
-    //     .typeError("Только числовые значения")
-    //     .positive("Только позитивные значения")
-    //     .required("Обязательно к заполнению"),
-    //   backFromBlackHole: yup.boolean(),
-    //   chanceToBack: yup.string(),
-    //   haveRecord: yup.string().required("Обязательно к заполнению"),
-    //   loadSpeed: yup
-    //     .number()
-    //     .typeError("Только числовые значения")
-    //     .positive("Только позитивные значения")
+    firstNameCyrillic: yup
+      .string()
+      .test("isCyrillic", "Заполняйте кириллицей", val => isCyrillic(val))
+      .required("Обязательно к заполнению"),
+    firstNameLatin: yup.string().required("Обязательно к заполнению"),
+    lastNameCyrillic: yup.string().required("Обязательно к заполнению"),
+    lastNameLatin: yup.string().required("Обязательно к заполнению"),
+    email: yup
+      .string()
+      .email("Недопустимый формат")
+      .required("Обязательно к заполнению"),
+    phoneNumber: yup.string().required("Обязательно к заполнению"),
+    personalPhoto: yup
+      .mixed()
+      .required("Обязательно к заполнению")
+      .test(
+        "fileSize",
+        "Файл должен быть не более 320kb",
+        value => value && value.size <= FILE_SIZE
+      )
+      .test(
+        "fileFormat",
+        "Только изображения в формате jpg/jpeg/gif/png",
+        value => value && SUPPORTED_FORMATS.includes(value.type)
+      ),
+    rocketPhoto: yup
+      .mixed()
+      .required("Обязательно к заполнению")
+      .test(
+        "fileSize",
+        "Файл должен быть не более 320kb",
+        value => value && value.size <= FILE_SIZE
+      )
+      .test(
+        "fileFormat",
+        "Только изображения в формате jpg/jpeg/gif/png",
+        value => value && SUPPORTED_FORMATS.includes(value.type)
+      ),
+    nameOfRocket: yup.string().required("Обязательно к заполнению"),
+    engineСapacity: yup
+      .number()
+      .typeError("Только числовые значения")
+      .positive("Только позитивные значения")
+      .required("Обязательно к заполнению"),
+    backFromBlackHole: yup.boolean(),
+    chanceToBack: yup.string(),
+    haveRecord: yup.string().required("Обязательно к заполнению"),
+    loadSpeed: yup
+      .number()
+      .typeError("Только числовые значения")
+      .positive("Только позитивные значения")
   }),
   handleSubmit: (values, { setSubmitting, setValues }) => {
     setTimeout(() => {
