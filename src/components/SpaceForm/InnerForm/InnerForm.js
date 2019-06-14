@@ -1,5 +1,5 @@
 import React from "react";
-import { Select, Input, Icon, Form, Button, Checkbox, InputNumber } from "antd";
+import { Select, Input, Icon, Form, Button, Checkbox } from "antd";
 import "antd/dist/antd.css";
 import "./InnerForm.css";
 import ImageUploader from "../ImageUploader/ImageUploader";
@@ -154,11 +154,12 @@ class InnerForm extends React.Component {
             ) : null}
           </FormItem>
           <FormItem>
-            Объем двигаетеля в литрах
+            <div>Объем двигаетеля в литрах</div>
             <Input
+              style={{ width: "30%" }}
               name="engineСapacity"
-              onChange={handleChange}
               value={values.engineСapacity}
+              onChange={handleChange}
             />
             {errors.engineСapacity && touched.engineСapacity ? (
               <div className="error">{errors.engineСapacity}</div>
@@ -209,11 +210,12 @@ class InnerForm extends React.Component {
             </FormItem>
             {values.haveRecord === "yes" ? (
               <FormItem>
-                Скорость передачи информации, ГБ/с
+                <div>Скорость передачи информации, ГБ/с</div>
                 <Input
+                  style={{ width: "30%" }}
                   name="loadSpeed"
-                  onChange={handleChange}
                   value={values.loadSpeed}
+                  onChange={handleChange}
                 />
                 {errors.loadSpeed && touched.loadSpeed ? (
                   <div className="error">{errors.loadSpeed}</div>
